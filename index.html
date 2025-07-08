@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Opening App...</title>
-    <script type="text/javascript">
-      setTimeout(function () {
-        window.location.href = "hcarr://onboarding-return";
-      }, 100);
-    </script>
-  </head>
-  <body>
-    <p>If you are not redirected, <a href="hcarr://onboarding-return">click here</a>.</p>
-  </body>
+<head>
+  <title>Redirecting...</title>
+  <script type="text/javascript">
+    window.onload = function() {
+      window.location = "hcarr://onboarding-return";
+
+      // Fallback after 2 seconds
+      setTimeout(function() {
+        window.location = "https://hardcoreamature.com/hcarr/";
+      }, 2000);
+    };
+  </script>
+</head>
+<body>
+  <p>If you are not redirected automatically, <a href="hcarr://onboarding-return">click here</a>.</p>
+</body>
 </html>
