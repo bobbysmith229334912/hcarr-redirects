@@ -3,15 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Opening App...</title>
+  <title>Launching HCARR App...</title>
 
-  <!-- Try to open the app -->
   <script type="text/javascript">
     window.onload = function () {
-      // Try to launch the app via custom scheme
       window.location = "hcarr://onboarding-return";
 
-      // Fallback to website after 2 seconds (Safari blocks instant redirect)
+      // Fallback after 2 seconds to website
       setTimeout(function () {
         window.location.href = "https://hardcoreamature.com/hcarr/";
       }, 2000);
@@ -19,39 +17,84 @@
   </script>
 
   <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background-color: #ffffff;
+    :root {
+      --brand-color: #6a11cb;
+      --brand-color-secondary: #2575fc;
+      --text-color: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, var(--brand-color), var(--brand-color-secondary));
+      color: var(--text-color);
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      margin: 0;
-      text-align: center;
-      padding: 20px;
     }
+
     .container {
-      max-width: 600px;
+      text-align: center;
+      max-width: 90%;
+      padding: 40px;
+      animation: fadeIn 1s ease-out;
     }
+
     h1 {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      animation: bounce 1.5s infinite alternate;
     }
+
     p {
-      font-size: 1rem;
-      color: #333;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
     }
+
     a {
-      color: #007AFF;
-      text-decoration: none;
+      color: #fff;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(255, 255, 255, 0.3);
+      border-top: 4px solid #fff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(-5px); }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Opening the HCARR app...</h1>
-    <p>If it doesn't open, <a href="hcarr://onboarding-return">tap here to launch the app</a>.</p>
-    <p>If that still doesn't work, <a href="https://hardcoreamature.com/hcarr/">go to the fallback page</a>.</p>
+    <h1>🚀 Launching HCARR App</h1>
+    <div class="spinner"></div>
+    <p>If the app doesn’t open, <a href="hcarr://onboarding-return">tap here</a>.</p>
+    <p>If you're not redirected, <a href="https://hardcoreamature.com/hcarr/">visit our site</a>.</p>
   </div>
 </body>
 </html>
