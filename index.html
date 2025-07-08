@@ -1,19 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Redirecting...</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Opening App...</title>
+
+  <!-- Try to open the app -->
   <script type="text/javascript">
-    window.onload = function() {
+    window.onload = function () {
+      // Try to launch the app via custom scheme
       window.location = "hcarr://onboarding-return";
 
-      // Fallback after 2 seconds
-      setTimeout(function() {
-        window.location = "https://hardcoreamature.com/hcarr/";
+      // Fallback to website after 2 seconds (Safari blocks instant redirect)
+      setTimeout(function () {
+        window.location.href = "https://hardcoreamature.com/hcarr/";
       }, 2000);
     };
   </script>
+
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+    }
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+    p {
+      font-size: 1rem;
+      color: #333;
+    }
+    a {
+      color: #007AFF;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
-  <p>If you are not redirected automatically, <a href="hcarr://onboarding-return">click here</a>.</p>
+  <div class="container">
+    <h1>Opening the HCARR app...</h1>
+    <p>If it doesn't open, <a href="hcarr://onboarding-return">tap here to launch the app</a>.</p>
+    <p>If that still doesn't work, <a href="https://hardcoreamature.com/hcarr/">go to the fallback page</a>.</p>
+  </div>
 </body>
 </html>
